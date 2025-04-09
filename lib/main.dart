@@ -524,7 +524,7 @@ void main (){
 
 */
 
-/*import 'dart:io';
+import 'dart:io';
 
 void main() {
   List<String> emails = [];
@@ -550,9 +550,9 @@ void main() {
   emails.add(inputemail);
 
   print("Account: ${emails.toString()}");
-}*/
+}
 
-import 'dart:io';
+/*import 'dart:io';
 
 void main (){
   String name;
@@ -564,6 +564,5 @@ void main (){
       print("Qaytadan urinib ko'ring!!!");
     }
   }while(name.trim().isEmpty);
-
   print("Ism muvaffaqiyatli kiritldi!!!");
-} //Email ni modular qilish funksiyalar qo'shish
+}*/ //Email ni modular qilish funksiyalar qo'shish
