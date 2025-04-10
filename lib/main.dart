@@ -525,13 +525,23 @@ void main (){
 */
 
 import 'dart:io';
-
+List<String> emails = [];
+var limit;
 void main() {
-  List<String> emails = [];
-  String inputemail;
+  setLimitofEmails();
+  print("Account: ${emails.toString()}");
+}
+String getEmail(){
+  var inputemail;
+  print("Email kiriting yoki 'exit' so'zini yozib dasturdan chiqishingiz mumkin: ");
   do {
     stdout.write("Email kiriting: ");
     inputemail = stdin.readLineSync() ?? "";
+
+    if(inputemail == "exit"){
+      print("Dasturdan chiqish yakunlandi!!!");
+      exit(0);
+    }
     if (!inputemail.contains("@")) {
       print("'@' belgisini qoldirib ketmang!!!");
     }
@@ -547,11 +557,23 @@ void main() {
           !inputemail.endsWith("mail.ru") &&
           !inputemail.endsWith("mail.uz")));
   print("Email muvaffaqiyatli kiritldi ");
-  emails.add(inputemail);
+  return inputemail;
 
-  print("Account: ${emails.toString()}");
 }
+void setLimitofEmails (){
+  stdout.write("Nechta email kiritmoqchisiz: ");
+   String inputlimit = stdin.readLineSync() ?? "";
+   limit = int.tryParse(inputlimit);
 
+   if(limit == null){
+     print("Qaytadan urinib ko'ring !!!");
+     return setLimitofEmails();
+   }
+   for(int i = 0; i < limit; i++){
+
+      emails.add(getEmail());
+  }
+}
 /*import 'dart:io';
 
 void main (){
